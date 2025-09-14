@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Drive - Turning Waste into Clean Energy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2d5a27, #4a8c43);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #90EE90;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #90EE90;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(45, 90, 39, 0.8), rgba(74, 140, 67, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a8c43" width="1200" height="600"/><circle fill="%2390EE90" cx="300" cy="150" r="80" opacity="0.3"/><circle fill="%2390EE90" cx="900" cy="450" r="120" opacity="0.2"/></svg>');
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .cta-button {
+            background: #90EE90;
+            color: #2d5a27;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(144, 238, 144, 0.3);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #2d5a27;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background: #90EE90;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        /* Workshops Section */
+        .workshops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .workshop-card {
+            background: #f8f9fa;
+            border-left: 4px solid #4a8c43;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .workshop-card:hover {
+            transform: translateX(10px);
+        }
+
+        .workshop-card h3 {
+            color: #2d5a27;
+            margin-bottom: 1rem;
+        }
+
+        /* Culture Section */
+        .culture {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background: #90EE90;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #2d5a27;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d5a27;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🌱 Green Drive</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#workshops">Workshops</a></li>
+                <li><a href="#culture">Culture</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Turning Waste into Clean Energy</h1>
+            <p>Green Drive pioneers sustainable transportation solutions with eco-friendly vehicles powered by renewable fuels made from waste.</p>
+            <a href="#products" class="cta-button">Discover Our Solutions</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section">
+        <h2>Our Eco-Friendly Vehicles</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-icon">🚌</div>
+                <h3>Biogas Buses & Trucks</h3>
+                <p>Heavy-duty vehicles powered by biomethane from organic waste, perfect for logistics companies seeking greener fleet solutions.</p>
+            </div>
+            <div class="product-card">
+                <div class="product-icon">🚗</div>
+                <h3>Eco Cars</h3>
+                <p>Personal vehicles using renewable diesel made from plastic waste and used cooking oil, designed for eco-conscious drivers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section id="workshops" class="section">
+        <h2>Our State-of-the-Art Workshops</h2>
+        <div class="workshops-grid">
+            <div class="workshop-card">
+                <h3>🔬 Research & Development</h3>
+                <p>Innovation hub where engineers develop next-generation biofuel engines and hybrid systems with advanced testing laboratories.</p>
+            </div>
+            <div class="workshop-card">
+                <h3>🏭 Assembly Workshop</h3>
+                <p>Manufacturing eco vehicles using recycled materials under strict green standards, powered by waste-to-energy electricity.</p>
+            </div>
+            <div class="workshop-card">
+                <h3>⛽ Fuel Workshop</h3>
+                <p>Transforms organic waste into biogas, cooking oil into biodiesel, and plastic waste into renewable diesel.</p>
+            </div>
+            <div class="workshop-card">
+                <h3>🔧 Component Workshop</h3>
+                <p>Integrates lightweight recycled materials from trusted partners with rigorous testing and standardization.</p>
+            </div>
+            <div class="workshop-card">
+                <h3>🛠️ Maintenance Workshop</h3>
+                <p>Ensures vehicle efficiency throughout lifecycle while serving as training center for sustainable technologies.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" class="section culture">
+        <h2>Our 3C Working Culture</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">💚</div>
+                <h3>Care</h3>
+                <p>We care for the planet, people, and communities through sustainable practices, wellness programs, and safe working environments.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h3>Collaboration</h3>
+                <p>Cross-functional teams work together, creating a network united by our mission of building a better future.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">💡</div>
+                <h3>Creativity</h3>
+                <p>We encourage innovative thinking where every individual feels empowered and recognized for their contributions.</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem; text-align: center; background: white; padding: 2rem; border-radius: 15px;">
+            <h3 style="color: #2d5a27; margin-bottom: 1rem;">Green Innovation Program</h3>
+            <p>Every employee can propose new ideas for waste-to-fuel technology or sustainable vehicle design. The best projects become real prototypes!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <h3>Ready to Drive Change?</h3>
+            <p style="margin: 1rem 0;">Join Green Drive in building a sustainable future through innovative transportation solutions.</p>
+            <p><strong>ISO 14001 Certified</strong> | Committed to Environmental Excellence</p>
+            <br>
+            <p>&copy; 2024 Green Drive. Turning waste into clean energy for a greener tomorrow.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(45, 90, 39, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #2d5a27, #4a8c43)';
+            }
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.product-card, .workshop-card, .value-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
